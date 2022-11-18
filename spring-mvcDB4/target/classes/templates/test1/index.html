@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<title>ユーザー新規登録</title>
+<link href="/css/add.css" rel="stylesheet">
+</link>
+
+<head>
+	<meta charset="utf-8">
+	<title>check</title>
+</head>
+
+<body>
+	OK
+	
+	<form action="/inputAll" method="post">
+        <input type="text" name="name">
+        <input type="submit" value="送信">
+    </form>
+
+	<!--
+	th:action：動作させるControllerの@RequestMappingのvalueと一致する値
+	th:object：画面表示時に動作したControlleで設定した「model.addAttribute("key", オブジェクト)」のキー値
+
+	<form method="post" th:action="@{/test1/update}" th:object="${employeeForm}">
+		<p><input type="text" th:field="*{id}" /></p>
+		<p><input type="text" th:field="*{name}"></p>
+		<p><input type="submit" value="送信ボタン"></p>
+	</form>
+	-->
+	<!--
+	<form th:action="@{/user/create}" th:object="${userRequest}" method="post">
+		<table>
+			<tr>
+				<th class="cell_title">名前</th>
+				<th class="cell_required">※</th>
+				<td><input type="text" th:field="*{name}"></td>
+			</tr>
+			<tr>
+				<th class="cell_title">住所</th>
+				<th class="cell_required"></th>
+				<td><input type="text" th:field="*{address}"></td>
+			</tr>
+			<tr>
+				<th class="cell_title">電話番号</th>
+				<th class="cell_required"></th>
+				<td><input type="text" th:field="*{phone}"></td>
+			</tr>
+		</table>
+		<div class="btn_area_center"><input type="submit" value="登録" class="btn"></div>
+	</form>
+	-->
+
+	<br>
+	<button onclick="location.href='test2'">一覧表示</button>
+</body>
+
+</html>
