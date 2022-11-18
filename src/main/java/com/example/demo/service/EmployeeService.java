@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.Repository.EmployeeRepository;
 import com.example.demo.model.EmployeeDto;
+import com.example.demo.model.EmployeeForm;
 
 import lombok.RequiredArgsConstructor;
 
@@ -25,14 +26,16 @@ public class EmployeeService {
 	private final EmployeeRepository employeeRepository;
 
 	@Transactional //この下の処理はすべてトランザクション管理下になり、DB更新で例外が発生したときはロールバックします。
-	public void updateData() {
+	public void updateData(EmployeeForm eform) {
 		// 登録データの作成
 		List<EmployeeDto> employeeList = new ArrayList<>();
 		LocalDateTime dateTimeNow = LocalDateTime.now();
 
 		employeeList.add(new EmployeeDto(1, "鈴木", "suzuki", dateTimeNow, dateTimeNow));
-		employeeList.add(new EmployeeDto(2, "田中", "tanaka", dateTimeNow, dateTimeNow));
+		employeeList.add(new EmployeeDto(2, eform.getName(), "tanaka", dateTimeNow, dateTimeNow));
 		employeeList.add(new EmployeeDto(3, "佐藤", "sato", dateTimeNow, dateTimeNow));
+		
+		
 
 		employeeRepository.updateEmployee(); // 更新
 		employeeRepository.insertEmployee(employeeList); // 登録

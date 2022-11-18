@@ -1,0 +1,35 @@
+body {
+width: 80%;
+}
+table{
+width: 100%;
+border-collapse: collapse;
+font-size: 13px;
+}
+table th, table td {
+border: 1px solid #ddd;
+padding: 6px;
+}
+table th {
+background-color: #F2F2F2;
+}
+table input {
+width:90%;
+}
+.cell_title {
+border-right: 0;
+}
+.cell_required{
+color: red;
+font-size: 12px;
+width: 10px;
+border-left: 0;
+}
+.btn {
+width: 100px;
+text-align: center;
+}
+.btn_area_center {
+margin-top: 20px;
+text-align: center;
+}

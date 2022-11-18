@@ -7,7 +7,10 @@
 */
 package com.example.demo.Repository;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -44,6 +47,21 @@ public class EmployeeRepository {
 	public void deleteEmployee(EmployeeDto employeeList) {
 		jdbcTemplate.update("DELETE FROM employee where id = ?" ,
 				employeeList.getId());
+	}
+	
+	public List<EmployeeDto> getAll() {
+		String sql = "select id,name,rubi,created_at,updated_at from employee";
+		List<Map<String, Object>> employeeList = jdbcTemplate.queryForList(sql);
+		List<EmployeeDto> list = new ArrayList<>();
+		for (Map<String, Object> employee : employeeList) {
+			list.add(new EmployeeDto(
+					(int) employee.get("id"),
+					(String) employee.get("name"),
+					(String) employee.get("rubi"),
+					(LocalDateTime) employee.get("created_at"),
+					(LocalDateTime) employee.get("updated_at")));
+		}
+		return list;
 	}
 
 }

@@ -16,23 +16,6 @@ CREATE TABLE `employee` (
   `updated_at` datetime NULL
 );
 
-//データ入力
-INSERT INTO employee(id,name,rubi,created_at,updated_at) VALUES('1','yasuda','Benimaru','','');
-INSERT INTO m_user(user_id,password,user_name,age,role) VALUES('2','2pass','Senku','17','general');
 
-//emp111dbというデータベース作成
 
-CREATE DATABASE emp111db;
-
-USE emp111db;
-
-//syainテーブル作成
-
-DROP TABLE IF EXISTS `syain`;
-CREATE TABLE `syain` (
-  `id` int(11) NULL,
-  `name` varchar(255) NULL,
-  `romaji` varchar(255) NULL,
-  `created_at` datetime NULL,
-  `updated_at` datetime NULL
-);
+// http://localhost:8765/test1　にアクセスする
