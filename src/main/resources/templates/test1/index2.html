@@ -13,15 +13,19 @@
 	<table>
 	      <tr>
 	        <th>id</th>
-	        <th>name</th>
-	        <th>rubi</th>
-	        <th>createdAt</th>
-	        <th>updatedAt</th>
+	        <th>名前</th>
+	        <th>苗字</th>
+	        <th>性別</th>
+	        <th>削除フラグ</th>
+	        <th>登録日時</th>
+	        <th>更新日時</th>
 	      </tr>
 	      <tr th:each="list : ${EmployeeList}">
 	        <td th:text="${list.id}"></td>
-	        <td th:text="${list.name}"></td>
-	        <td th:text="${list.rubi}"></td>
+	        <td th:text="${list.namae}"></td>
+	        <td th:text="${list.myoji}"></td>
+	        <td th:text="${list.sex}"></td>
+	        <td th:text="${list.status_deleted}"></td>
 	        <td th:text="${list.createdAt}"></td>
 	        <td th:text="${list.updatedAt}"></td>
 	      </tr>

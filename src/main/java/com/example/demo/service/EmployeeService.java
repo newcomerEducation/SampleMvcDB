@@ -31,15 +31,15 @@ public class EmployeeService {
 		List<EmployeeDto> employeeList = new ArrayList<>();
 		LocalDateTime dateTimeNow = LocalDateTime.now();
 
-		employeeList.add(new EmployeeDto(1, "鈴木", "suzuki", dateTimeNow, dateTimeNow));
-		employeeList.add(new EmployeeDto(2, eform.getName(), "tanaka", dateTimeNow, dateTimeNow));
-		employeeList.add(new EmployeeDto(3, "佐藤", "sato", dateTimeNow, dateTimeNow));
+		employeeList.add(new EmployeeDto(eform.getId(), eform.getNamae(), "suzuki","男",0, dateTimeNow, dateTimeNow));
+		// employeeList.add(new EmployeeDto(2, eform.getNamae(), "tanaka", dateTimeNow, dateTimeNow));
+		// employeeList.add(new EmployeeDto(3, "佐藤", "sato", dateTimeNow, dateTimeNow));
 		
 		
 
-		employeeRepository.updateEmployee(); // 更新
+		// employeeRepository.updateEmployee(); // 更新
 		employeeRepository.insertEmployee(employeeList); // 登録
-		employeeRepository.deleteEmployee(employeeList.get(0)); // 削除
+		// employeeRepository.deleteEmployee(employeeList.get(0)); // 削除
 	}
 
 }

@@ -10,45 +10,33 @@
 </head>
 
 <body>
-	OK
 	
-	<form action="/inputAll" method="post">
-        <input type="text" name="name">
+	<form action="/inputOne" method="post">
+        <input type="text" name="namae">
         <input type="submit" value="送信">
     </form>
 
-	<!--
-	th:action：動作させるControllerの@RequestMappingのvalueと一致する値
-	th:object：画面表示時に動作したControlleで設定した「model.addAttribute("key", オブジェクト)」のキー値
-
-	<form method="post" th:action="@{/test1/update}" th:object="${employeeForm}">
-		<p><input type="text" th:field="*{id}" /></p>
-		<p><input type="text" th:field="*{name}"></p>
-		<p><input type="submit" value="送信ボタン"></p>
-	</form>
-	-->
-	<!--
-	<form th:action="@{/user/create}" th:object="${userRequest}" method="post">
+	
+	<!-- 
+	<form method="post" th:action="@{/test1/insert}" th:object="${employeeForm}">
 		<table>
 			<tr>
 				<th class="cell_title">名前</th>
-				<th class="cell_required">※</th>
-				<td><input type="text" th:field="*{name}"></td>
+				<td><input type="text" th:field="*{namae}"></td>
 			</tr>
 			<tr>
-				<th class="cell_title">住所</th>
-				<th class="cell_required"></th>
-				<td><input type="text" th:field="*{address}"></td>
+				<th class="cell_title">苗字</th>
+				<td><input type="text" th:field="*{myoji}"></td>
 			</tr>
 			<tr>
-				<th class="cell_title">電話番号</th>
-				<th class="cell_required"></th>
-				<td><input type="text" th:field="*{phone}"></td>
+				<th class="cell_title">性別</th>
+				<td><input type="text" th:field="*{sex}"></td>
 			</tr>
+			
 		</table>
 		<div class="btn_area_center"><input type="submit" value="登録" class="btn"></div>
 	</form>
-	-->
+	!-->
 
 	<br>
 	<button onclick="location.href='test2'">一覧表示</button>

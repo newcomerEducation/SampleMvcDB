@@ -11,7 +11,6 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -54,16 +53,27 @@ public class MainController {
 		return "test1/index2"; // templatesの下のtest1フォルダの中のindex2を表示?
 	}
 
-	// @PostMapping」を付与すると画面からPOSTメソッドで送られてきた場合の処理ができる。引数には「index.html」
+	// @PostMapping」を付与すると画面からPOSTメソッドで送られてきた場合の処理ができる。引数には「index.html」のaction
 	// のフォームで設定したaction属性のパスを設定する
-	@PostMapping("inputAll")
+	@PostMapping("inputOne")
 	// メソッドの引数に「@RequestParam」を付与すると画面で入力した値が受け取れる。引数にはformのname属性を指定する //
 	// 直後に記述した変数で値を受け取る 「String responseVal」 // 画面に値を渡す為に引数に「Model model」を設定
-	String postResult(@RequestParam("name") String name) {
-		employeeForm.setName(name);
+	String postResult(@RequestParam("namae") String namae) {
+		employeeForm.setNamae(namae);
 		employeeService.updateData(employeeForm);
 		return "redirect:/test1";
 	}
+	
+	/*// 登録（一括）
+	@PostMapping("/insert")
+	public String write3(EmployeeForm employeeForm) {
+		SyainDto syain = new SyainDto();
+		syain.setId(syainForm.getId());
+		syain.setName(syainForm.getName());
+		syainRepository.insertSyain(syain);
+		return "redirect:/test1/";
+	}*/
+	
 
 	
 

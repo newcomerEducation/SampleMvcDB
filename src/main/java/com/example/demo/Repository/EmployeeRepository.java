@@ -31,17 +31,17 @@ public class EmployeeRepository {
 		for (EmployeeDto employee : employeeList) {
 			jdbcTemplate.update(
 					"INSERT INTO employee"
-					+ "(id,name,rubi,created_at,updated_at) "
-					+ "Values(?,?,?,?,?)",
-					employee.getId(), employee.getName(),employee.getRubi(),
+					+ "(id,namae,myoji,sex,status_deleted,created_at,updated_at) "
+					+ "Values(?,?,?,?,?,?,?)",
+					employee.getId(), employee.getNamae(),employee.getMyoji(),employee.getSex(),employee.getStatus_deleted(),
 					employee.getCreatedAt(),employee.getUpdatedAt());
 		}
 	}
 
 	public void updateEmployee() {
 		jdbcTemplate.update(
-				"UPDATE employee SET name = ? ,rubi = ? where id = ?",
-				"testName", "testRubi", 2);
+				"UPDATE employee SET namae = ? ,myoji = ?,sex = ?,updated_at = ? where id = ?",
+				"testNamae", "testMyoji","testSex","testUpdated_at", 2);
 	}
 
 	public void deleteEmployee(EmployeeDto employeeList) {
@@ -49,15 +49,18 @@ public class EmployeeRepository {
 				employeeList.getId());
 	}
 	
+	// 一覧表示機能のメソッドgetAll()
 	public List<EmployeeDto> getAll() {
-		String sql = "select id,name,rubi,created_at,updated_at from employee";
+		String sql = "select id,namae,myoji,sex,status_deleted,created_at,updated_at from employee";
 		List<Map<String, Object>> employeeList = jdbcTemplate.queryForList(sql);
 		List<EmployeeDto> list = new ArrayList<>();
 		for (Map<String, Object> employee : employeeList) {
 			list.add(new EmployeeDto(
 					(int) employee.get("id"),
-					(String) employee.get("name"),
-					(String) employee.get("rubi"),
+					(String) employee.get("namae"),
+					(String) employee.get("myoji"),
+					(String) employee.get("sex"),
+					(int) employee.get("status_deleted"),
 					(LocalDateTime) employee.get("created_at"),
 					(LocalDateTime) employee.get("updated_at")));
 		}
