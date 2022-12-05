@@ -7,6 +7,7 @@
 */
 package com.example.demo.service;
 
+import java.sql.Time;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,20 +27,33 @@ public class EmployeeService {
 	private final EmployeeRepository employeeRepository;
 
 	@Transactional //この下の処理はすべてトランザクション管理下になり、DB更新で例外が発生したときはロールバックします。
+	
+	
 	public void updateData(EmployeeForm eform) {
 		// 登録データの作成
 		List<EmployeeDto> employeeList = new ArrayList<>();
 		LocalDateTime dateTimeNow = LocalDateTime.now();
 
-		employeeList.add(new EmployeeDto(eform.getId(), eform.getNamae(), "suzuki","男",0, dateTimeNow, dateTimeNow));
-		// employeeList.add(new EmployeeDto(2, eform.getNamae(), "tanaka", dateTimeNow, dateTimeNow));
-		// employeeList.add(new EmployeeDto(3, "佐藤", "sato", dateTimeNow, dateTimeNow));
+		employeeList.add(new EmployeeDto(eform.getId(), eform.getNamae(), eform.getMyoji(),eform.getSex() ,0,dateTimeNow, dateTimeNow,eform.getSelect(),eform.getTextarea(),eform.getFirst_interview_scheduled_date()));
+		//employeeList.add(new EmployeeDto(eform.getId(), eform.getNamae(), eform.getMyoji(),eform.getSex() ,0,dateTimeNow, dateTimeNow,eform.getSelect(),eform.getTextarea(),eform.getFirst_interview_scheduled_date(),eform.getFirst_interview_scheduled_time()));
+
 		
 		
 
-		// employeeRepository.updateEmployee(); // 更新
+		employeeRepository.updateEmployee(employeeList); // 更新
+	}
+	
+	public void insertData(EmployeeForm eform) {
+		// 登録データの作成
+		List<EmployeeDto> employeeList = new ArrayList<>();
+		LocalDateTime dateTimeNow = LocalDateTime.now();
+
+		employeeList.add(new EmployeeDto(eform.getId(), eform.getNamae(), eform.getMyoji(),eform.getSex() ,0,dateTimeNow, dateTimeNow,eform.getSelect(),eform.getTextarea(),eform.getFirst_interview_scheduled_date()));
+		//employeeList.add(new EmployeeDto(eform.getId(), eform.getNamae(), eform.getMyoji(),eform.getSex() ,0,dateTimeNow, dateTimeNow,eform.getSelect(),eform.getTextarea(),eform.getFirst_interview_scheduled_date(),eform.getFirst_interview_scheduled_time()));
+
+		
+
 		employeeRepository.insertEmployee(employeeList); // 登録
-		// employeeRepository.deleteEmployee(employeeList.get(0)); // 削除
 	}
 
 }

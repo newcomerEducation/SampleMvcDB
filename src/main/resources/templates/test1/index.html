@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<title>ユーザー新規登録</title>
+<title>ユーザー登録・更新・削除</title>
 <link href="/css/add.css" rel="stylesheet">
+
 </link>
 
 <head>
@@ -10,33 +11,65 @@
 </head>
 
 <body>
-	
-	<form action="/inputOne" method="post">
-        <input type="text" name="namae">
-        <input type="submit" value="送信">
-    </form>
 
-	
-	<!-- 
-	<form method="post" th:action="@{/test1/insert}" th:object="${employeeForm}">
-		<table>
-			<tr>
-				<th class="cell_title">名前</th>
-				<td><input type="text" th:field="*{namae}"></td>
-			</tr>
-			<tr>
-				<th class="cell_title">苗字</th>
-				<td><input type="text" th:field="*{myoji}"></td>
-			</tr>
-			<tr>
-				<th class="cell_title">性別</th>
-				<td><input type="text" th:field="*{sex}"></td>
-			</tr>
-			
-		</table>
-		<div class="btn_area_center"><input type="submit" value="登録" class="btn"></div>
+	<!-- 赤坂作成インサートフォーム　!-->
+	<br> <br>
+	<h2>社員を新規で登録する</h2>
+	<form th:action="@{/inputAll}" th:object="${employeeForm}" method="post">
+		名前：<input type="text" th:field="*{namae}"><br>
+		苗字：<input type="text" th:field="*{myoji}"><br>
+		性別：<input type="text" th:field="*{sex}"><br>
+
+
+		<label for="textarea">テキストエリア</label><br />
+		<textarea name="textarea" rows="10" cols="50" th:field="*{textarea}"></textarea>
+		<br><br>
+
+
+		<label for="select">セレクト</label><br />
+		<select th:field="*{select}">
+			<option value=""></option>
+			<option value="1">志望する</option>
+			<option value="2">志望しない</option>
+		</select>
+		<br><br>
+
+		<label style="width: 300">　面談予定日 </label><br />
+		<input type="date" th:field="*{first_interview_scheduled_date}" />
+		<br><br>
+		
+		<label style="width: 300">　面談予定時間 </label><br />
+		<input type="time" th:field="*{first_interview_scheduled_time}" />
+		<br><br>
+		
+		
+
+		<!--
+		<label for="second_interview_time">二次面談実施時間</label><br />
+		<input type="time" name="second_interview_time"
+			th:field="<fmt:formatDate value='${schedule.second_interview_time}' pattern='HH:mm' />"
+			${#dates.format(date, 'dd/MMM/yyyy HH:mm')}
+		/>
+		<br /><br />
+		<label for="second_interview_date">二次面談実施日</label><br />
+		<input type="date" name="second_interview_date"
+			value="<fmt:formatDate value='${schedule.second_interview_date}' pattern='yyyy-MM-dd' />" />
+		<br /><br />
+!-->
+
+		<input type="submit" value="新規登録">
 	</form>
-	!-->
+
+	<!-- 福本作成アップデートフォーム!-->
+	<br> <br>
+	<h2>社員を更新する</h2>
+	<form th:action="@{/update}" th:object="${employeeForm}" method="post">
+		ID：<input type="text" th:field="*{id}"><br>
+		名前：<input type="text" th:field="*{namae}"><br>
+		苗字：<input type="text" th:field="*{myoji}"><br>
+		性別：<input type="text" th:field="*{sex}"><br>
+		<input type="submit" value="更新">
+	</form>
 
 	<br>
 	<button onclick="location.href='test2'">一覧表示</button>

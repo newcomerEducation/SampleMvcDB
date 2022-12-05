@@ -6,7 +6,10 @@
 */
 package com.example.demo.model;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,5 +24,10 @@ public class EmployeeDto {
     private int status_deleted;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private Integer select;
+    private String textarea;
+    private Date first_interview_scheduled_date;
+    // private String first_interview_scheduled_time; //Date型にしたい
+    
     
 }

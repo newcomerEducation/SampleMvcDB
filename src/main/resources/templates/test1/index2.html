@@ -1,34 +1,56 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link href="/css/add.css" rel="stylesheet">
 
 <head>
-<meta charset="utf-8">
-<title>check</title>
+	<meta charset="utf-8">
+	<title>check</title>
 </head>
-<body >
-遷移先
-<br>
-<button onclick="location.href='test1'">もどる</button>
-<br>
+
+<body>
+	遷移先
+	<br>
+	<button onclick="location.href='test1'" class="btn">もどる</button>
+	<br>
 	<table>
-	      <tr>
-	        <th>id</th>
-	        <th>名前</th>
-	        <th>苗字</th>
-	        <th>性別</th>
-	        <th>削除フラグ</th>
-	        <th>登録日時</th>
-	        <th>更新日時</th>
-	      </tr>
-	      <tr th:each="list : ${EmployeeList}">
-	        <td th:text="${list.id}"></td>
-	        <td th:text="${list.namae}"></td>
-	        <td th:text="${list.myoji}"></td>
-	        <td th:text="${list.sex}"></td>
-	        <td th:text="${list.status_deleted}"></td>
-	        <td th:text="${list.createdAt}"></td>
-	        <td th:text="${list.updatedAt}"></td>
-	      </tr>
+		<tr>
+			<th>id</th>
+			<th>名前</th>
+			<th>苗字</th>
+			<th>性別</th>
+			<th>削除フラグ</th>
+			<th>登録日時</th>
+			<th>更新日時</th>
+			<th>志望理由</th>
+			<th>テキストエリア</th>
+			<th>面談予定日</th>
+			<th>面談予定時間</th>
+		</tr>
+		<tr th:each="list : ${EmployeeList}">
+			<td th:text="${list.id}"></td>
+			<td th:text="${list.namae}"></td>
+			<td th:text="${list.myoji}"></td>
+			<td th:text="${list.sex}"></td>
+			<td th:text="${list.status_deleted}"></td>
+			<td th:text="${list.createdAt}"></td>
+			<td th:text="${list.updatedAt}"></td>
+			<td>
+			<div th:switch="${list.select}">
+				<p th:case="1" th:text="|志望する|"></p>
+				<p th:case="2" th:text="|志望しない|"></p>
+				<p th:case="*">対象なし</p>
+			</div>
+			</td>
+			<td th:text="${list.textarea}" class="kaigyo"></td>
+			<td th:text="${list.first_interview_scheduled_date}"></td>
+			<td th:text="${list.first_interview_scheduled_time}"></td>
+		</tr>
+		
+		
+		
 	</table>
+	
+	
 </body>
+
 </html>

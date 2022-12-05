@@ -1,21 +1,88 @@
+CREATE DATABASE springdb DEFAULT CHARACTER SET utf8;
 
-//emp333dbというデータベース作成
 
-CREATE DATABASE emp333db;
+USE springdb;
 
-USE emp333db;
-
-//employeeテーブル作成
 
 DROP TABLE IF EXISTS `employee`;
 CREATE TABLE `employee` (
-  `id` int(11) NULL,
-  `name` varchar(255) NULL,
-  `rubi` varchar(255) NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `namae` varchar(255) NULL,
+  `myoji` varchar(255) NULL,
+  `sex` varchar(64) NULL,
+  `status_deleted` int(11) NULL,
   `created_at` datetime NULL,
-  `updated_at` datetime NULL
-);
-
-
+  `updated_at` datetime NULL,
+  PRIMARY KEY (`id`)
+)DEFAULT CHARSET=utf8;
 
 // http://localhost:8765/test1　にアクセスする
+
+
+//テーブルにカラムを追加する
+ALTER TABLE employee
+ADD textarea longtext NULL;
+
+ALTER TABLE employee
+ADD aspiration_situation int(11) NULL;
+
+
+ALTER TABLE employee
+ADD first_interview_scheduled_date date NULL;
+
+ALTER TABLE employee
+ADD first_interview_scheduled_time time NULL;
+
+//テーブルを確認
+show columns from employee;
+
+
+
+// カラム削除
+ALTER TABLE テーブル名 DROP COLUMN カラム名;
+ALTER TABLE employee DROP COLUMN first_interview_scheduled_time;
+
+
+ALTER TABLE employee ADD first_interview_scheduled_time varchar(255) NULL;
+
+
+//第二のデータベース
+CREATE DATABASE springdb2 DEFAULT CHARACTER SET utf8;
+
+
+USE springdb2;
+
+
+DROP TABLE IF EXISTS `employee`;
+CREATE TABLE `employee` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `namae` varchar(255) NULL,
+  `myoji` varchar(255) NULL,
+  `sex` varchar(64) NULL,
+  `status_deleted` int(11) NULL,
+  `created_at` datetime NULL,
+  `updated_at` datetime NULL,
+  `textarea` longtext NULL,
+  `aspiration_situation` int(11) NULL,
+  `first_interview_scheduled_date` date NULL,
+  `first_interview_scheduled_time` varchar(255) NULL,
+  PRIMARY KEY (`id`)
+)DEFAULT CHARSET=utf8;
+
+// http://localhost:8765/test1　にアクセスする
+
+
+//テーブルにカラムを追加する
+ALTER TABLE employee
+ADD textarea longtext NULL;
+
+ALTER TABLE employee
+ADD aspiration_situation int(11) NULL;
+
+
+ALTER TABLE employee
+ADD first_interview_scheduled_date date NULL;
+
+ALTER TABLE employee
+ADD first_interview_scheduled_time time NULL;
+

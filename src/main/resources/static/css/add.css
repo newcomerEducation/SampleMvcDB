@@ -33,3 +33,8 @@ text-align: center;
 margin-top: 20px;
 text-align: center;
 }
+
+/* 改行を反映させるための記述 */
+.kaigyo{
+	white-space: pre-wrap;
+}
