@@ -38,14 +38,12 @@
 			<div th:switch="${list.select}">
 				<p th:case="1" th:text="|志望する|"></p>
 				<p th:case="2" th:text="|志望しない|"></p>
-				<p th:case="*">対象なし</p>
+				<p th:case="0">対象なし</p>
 			</div>
 			</td>
 			<td th:text="${list.textarea}" class="kaigyo"></td>
 			<td th:text="${list.first_interview_scheduled_date}"></td>
-			
 			<td th:text="${list.first_interview_scheduled_time}"></td>
-			
 		</tr>
 		
 		

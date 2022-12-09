@@ -22,7 +22,7 @@ public class EmployeeForm {
     private Integer select;
     private String textarea;
     private Date first_interview_scheduled_date;
-    private String first_interview_scheduled_time; 
+    private Time first_interview_scheduled_time; 
     
 }
 

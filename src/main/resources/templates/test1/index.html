@@ -1,47 +1,44 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <title>ユーザー登録・更新・削除</title>
-<link href="/css/add.css" rel="stylesheet">
 
-</link>
-
-<head>
-	<meta charset="utf-8">
-	<title>check</title>
-</head>
 
 <body>
+	<!-- 共通部品側を呼び出す(ヘッダー)　!-->
+	<!--
+	th:replaceで取り込む対象を指定します。
+	test1/HeadFootは、フォルダ名+ファイル名です。
+!-->
 
-	<!-- 赤坂作成インサートフォーム　!-->
+	<div th:replace="test1/HeadFoot::header1"></div>
+
 	<br> <br>
 	<h2>社員を新規で登録する</h2>
-	<form th:action="@{/inputAll}" th:object="${employeeForm}" method="post">
-		名前：<input type="text" th:field="*{namae}"><br>
-		苗字：<input type="text" th:field="*{myoji}"><br>
-		性別：<input type="text" th:field="*{sex}"><br>
-
+	<form th:action="@{/inputEachAll}" method="post">
+		名前：<input type="text" th:id="namae" th:name="namae" th:value="${namae}" ><br>
+		苗字：<input type="text" th:id="myoji" th:name="myoji" th:value="${myoji}" ><br>
+		性別：<input type="text" th:id="sex" th:name="sex" th:value="${sex}" ><br>
 
 		<label for="textarea">テキストエリア</label><br />
-		<textarea name="textarea" rows="10" cols="50" th:field="*{textarea}"></textarea>
+		<textarea  rows="10" cols="50" th:id="textarea" th:name="textarea" th:value="${textarea}" ></textarea>
 		<br><br>
 
 
 		<label for="select">セレクト</label><br />
-		<select th:field="*{select}">
-			<option value=""></option>
+		<select th:id="select" th:name="select" th:value="${select}" >
+			<option value="0"></option>
 			<option value="1">志望する</option>
 			<option value="2">志望しない</option>
 		</select>
 		<br><br>
 
 		<label style="width: 300">　面談予定日 </label><br />
-		<input type="date" th:field="*{first_interview_scheduled_date}" />
+		<input type="date" th:id="first_interview_scheduled_date" th:name="first_interview_scheduled_date" th:value="${first_interview_scheduled_date}" />
 		<br><br>
 		
 		<label style="width: 300">　面談予定時間 </label><br />
-		<input type="time" th:field="*{first_interview_scheduled_time}" />
+		<input type="time" th:id="first_interview_scheduled_time" th:name="first_interview_scheduled_time" th:value="${first_interview_scheduled_time}" />
 		<br><br>
-		
 		
 
 		<!-- ここから下のコメントはJSPの書き方
@@ -60,6 +57,7 @@
 		<input type="submit" value="新規登録">
 	</form>
 
+
 	<!-- 福本作成アップデートフォーム!-->
 	<br> <br>
 	<h2>社員を更新する</h2>
@@ -73,6 +71,15 @@
 
 	<br>
 	<button onclick="location.href='test2'">一覧表示</button>
+
+
+	<!-- 共通部品側を呼び出す(ヘッダー)　!-- >
+<!--
+	th:replaceで取り込む対象を指定します。
+	test1/HeadFootは、フォルダ名+ファイル名です。
+!-->
+	<div th:replace="test1/HeadFoot::header1"></div>
+
 </body>
 
 </html>
