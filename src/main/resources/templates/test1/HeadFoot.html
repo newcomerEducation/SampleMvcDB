@@ -1,0 +1,18 @@
+<!-- 共通部品として呼ばれる側のHeadFoot.htmlファイルのコードです。!-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- th:fragmentは、呼び出す側からの対象になります。 !-->
+<header th:fragment="header1">
+
+	<link href="/css/add.css" rel="stylesheet">
+	</link>
+	<meta charset="utf-8">
+	<title>check</title>
+	<p style="background: yellow">ヘッダーです</p>
+</header>
+<footer th:fragment="footer1">
+	<p style="background: yellow">フッターです</p>
+</footer>
+
+</html>
