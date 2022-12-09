@@ -27,7 +27,7 @@ public class EmployeeDto {
     private Integer select;
     private String textarea;
     private Date first_interview_scheduled_date;
-    // private String first_interview_scheduled_time; //Date型にしたい
+    private String first_interview_scheduled_time; //Date型にしたい
     
     
 }

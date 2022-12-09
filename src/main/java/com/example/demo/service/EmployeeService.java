@@ -34,8 +34,8 @@ public class EmployeeService {
 		List<EmployeeDto> employeeList = new ArrayList<>();
 		LocalDateTime dateTimeNow = LocalDateTime.now();
 
-		employeeList.add(new EmployeeDto(eform.getId(), eform.getNamae(), eform.getMyoji(),eform.getSex() ,0,dateTimeNow, dateTimeNow,eform.getSelect(),eform.getTextarea(),eform.getFirst_interview_scheduled_date()));
-		//employeeList.add(new EmployeeDto(eform.getId(), eform.getNamae(), eform.getMyoji(),eform.getSex() ,0,dateTimeNow, dateTimeNow,eform.getSelect(),eform.getTextarea(),eform.getFirst_interview_scheduled_date(),eform.getFirst_interview_scheduled_time()));
+		//employeeList.add(new EmployeeDto(eform.getId(), eform.getNamae(), eform.getMyoji(),eform.getSex() ,0,dateTimeNow, dateTimeNow,eform.getSelect(),eform.getTextarea(),eform.getFirst_interview_scheduled_date()));
+		employeeList.add(new EmployeeDto(eform.getId(), eform.getNamae(), eform.getMyoji(),eform.getSex() ,0,dateTimeNow, dateTimeNow,eform.getSelect(),eform.getTextarea(),eform.getFirst_interview_scheduled_date(),eform.getFirst_interview_scheduled_time()));
 
 		
 		
@@ -48,8 +48,8 @@ public class EmployeeService {
 		List<EmployeeDto> employeeList = new ArrayList<>();
 		LocalDateTime dateTimeNow = LocalDateTime.now();
 
-		employeeList.add(new EmployeeDto(eform.getId(), eform.getNamae(), eform.getMyoji(),eform.getSex() ,0,dateTimeNow, dateTimeNow,eform.getSelect(),eform.getTextarea(),eform.getFirst_interview_scheduled_date()));
-		//employeeList.add(new EmployeeDto(eform.getId(), eform.getNamae(), eform.getMyoji(),eform.getSex() ,0,dateTimeNow, dateTimeNow,eform.getSelect(),eform.getTextarea(),eform.getFirst_interview_scheduled_date(),eform.getFirst_interview_scheduled_time()));
+		//employeeList.add(new EmployeeDto(eform.getId(), eform.getNamae(), eform.getMyoji(),eform.getSex() ,0,dateTimeNow, dateTimeNow,eform.getSelect(),eform.getTextarea(),eform.getFirst_interview_scheduled_date()));
+		employeeList.add(new EmployeeDto(eform.getId(), eform.getNamae(), eform.getMyoji(),eform.getSex() ,0,dateTimeNow, dateTimeNow,eform.getSelect(),eform.getTextarea(),eform.getFirst_interview_scheduled_date(),eform.getFirst_interview_scheduled_time()));
 
 		
 

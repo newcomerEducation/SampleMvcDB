@@ -45,9 +45,11 @@ public class MainController {
 //	引数には「index.html」のactionのフォームで設定したaction属性のパスを設定する			
 		@PostMapping("/inputAll")
 		public String disp2(EmployeeForm employeeForm) {
+			System.out.println(employeeForm);
 			// 登録メソッド等呼び出し
 			employeeService.insertData(employeeForm);
 			// test1にリダイレクト
+			System.out.println(employeeForm);
 			return "redirect:/test1";
 		}
 		
