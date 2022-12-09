@@ -9,7 +9,10 @@
 package com.example.demo.controller;
 
 import java.sql.Date;
+<<<<<<< HEAD
 import java.sql.Time;
+=======
+>>>>>>> 1e6bc67fe55364eecf19e3a88539dc5fc90aeca7
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -38,6 +41,18 @@ public class MainController {
 	EmployeeForm employeeForm = new EmployeeForm();
 	LocalDateTime dateTimeNow = LocalDateTime.now();// 時間
 
+<<<<<<< HEAD
+=======
+	// 使い方わからず
+		// registerCustomEditorが入力データをトリム（余分な空白を削除）して、
+		// 未入力の場合はNULLに変換してFormに渡す。springMVCは未入力を空文字で入れてしまうのでその対策。
+		@InitBinder("first_interview_scheduled_date")
+		public void initBinder(WebDataBinder binder) {
+			// 未入力のStringをnullに設定する
+			binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));
+		}
+
+>>>>>>> 1e6bc67fe55364eecf19e3a88539dc5fc90aeca7
 	@GetMapping("/test1")
 	// 初回アクセス時の画面を表示でフォームを紐付けています。
 	public String disp1(Model model) {
@@ -63,6 +78,7 @@ public class MainController {
 	public String postMethod(@RequestParam("namae") String namae, @RequestParam("myoji") String myoji,
 			@RequestParam("sex") String sex, @RequestParam("textarea") String textarea,
 			@RequestParam("select") String select,
+<<<<<<< HEAD
 			@RequestParam("first_interview_scheduled_date") String str_first_interview_scheduled_date,
 			@RequestParam("first_interview_scheduled_time") String str_first_interview_scheduled_time) {
 
@@ -89,14 +105,30 @@ public class MainController {
 		// selectボックスは数字で格納するのでintに変換
 		int inputSelect = Integer.parseInt(select);
 
+=======
+			@RequestParam("first_interview_scheduled_date") String first_interview_scheduled_date) {
+		
+		//HTMLからもってきた値はDate型に格納できないので型を変換する　Date.valueOf（変換するString変数）
+		//springMVCは勝手に未入力は空文字で送るが、Date型は空文字拒否でNULLを受け入れるのでNULLを入れる作業が必要
+		Date inputDate = null;
+		inputDate = Date.valueOf(first_interview_scheduled_date);
+		//intに変換
+		int inputSelect = Integer.parseInt(select);
+		
+>>>>>>> 1e6bc67fe55364eecf19e3a88539dc5fc90aeca7
 		// EmployeeFormクラスにsetする
 		employeeForm.setNamae(namae);
 		employeeForm.setMyoji(myoji);
 		employeeForm.setSex(sex);
 		employeeForm.setTextarea(textarea);
+<<<<<<< HEAD
 		employeeForm.setSelect(inputSelect);// キャストしたものをいれる
 		employeeForm.setFirst_interview_scheduled_date(first_interview_scheduled_date);// キャストしたものをいれる
 		employeeForm.setFirst_interview_scheduled_time(first_interview_scheduled_time);// キャストしたものをいれる
+=======
+		employeeForm.setSelect(inputSelect);//キャストしたものをいれる
+		employeeForm.setFirst_interview_scheduled_date(inputDate);//キャストしたものをいれる
+>>>>>>> 1e6bc67fe55364eecf19e3a88539dc5fc90aeca7
 		employeeForm.setUpdatedAt(dateTimeNow);// 更新日時はdateTimeNowで自動挿入
 
 		// 登録メソッド呼び出し
